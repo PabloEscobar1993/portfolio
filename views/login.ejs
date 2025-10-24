@@ -1,0 +1,22 @@
+<%- include('layouts/header', {title: 'Login de Administrador'}) %>
+
+<section id="login-form" style="max-width: 400px; margin: 50px auto; padding: 30px; border: 1px solid #ccc; border-radius: 8px;">
+    <h2>Acesso Administrativo</h2>
+    
+    <% if (typeof error !== 'undefined' && error) { %>
+        <p style="color: red; font-weight: bold;">Erro: Senha incorreta. Tente novamente.</p>
+    <% } %>
+
+    <form action="/login" method="POST">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required 
+               style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px;">
+        
+        <button type="submit" 
+                style="width: 100%; padding: 10px; background-color: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Entrar
+        </button>
+    </form>
+</section>
+
+<%- include('layouts/footer', {dados: {nome: 'Portfólio', linkedin: '#', github: '#'} }) %>

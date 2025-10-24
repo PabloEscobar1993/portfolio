@@ -1,0 +1,53 @@
+<%- include('layouts/header', {title: 'Admin CRUD'}) %>
+
+<section id="admin-crud">
+    <h2>Gerenciamento de Projetos (CRUD)</h2>
+
+    <fieldset>
+        <legend>Criar Novo Projeto (POST)</legend>
+        <form action="/admin/projetos" method="POST">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" required><br>
+            
+            <label for="tecnologias">Tecnologias:</label>
+            <input type="text" id="tecnologias" name="tecnologias"><br>
+            
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao"></textarea><br>
+            
+            <label for="link">Link:</label>
+            <input type="url" id="link" name="link"><br>
+            
+            <button type="submit">Adicionar Projeto</button>
+        </form>
+    </fieldset>
+
+    <hr>
+    <h3>Projetos Existentes</h3>
+    
+    <% listaProjetos.forEach(projeto => { %>
+        <article class="projeto-admin">
+            <h4><%= projeto.titulo %> (ID: <%= projeto.id %>)</h4>
+            
+            <form action="/admin/projetos/delete/<%= projeto.id %>" method="POST" style="display:inline;">
+                <button type="submit">Excluir (DELETE)</button>
+            </form>
+
+            <fieldset>
+                <legend>Editar Projeto ID: <%= projeto.id %> (PUT)</legend>
+                <form action="/admin/projetos/update/<%= projeto.id %>" method="POST">
+                    <label>Título:</label>
+                    <input type="text" name="titulo" value="<%= projeto.titulo %>" required><br>
+                    
+                    <label>Tecnologias:</label>
+                    <input type="text" name="tecnologias" value="<%= projeto.tecnologias %>"><br>
+                    
+                    <button type="submit">Atualizar (PUT)</button>
+                </form>
+            </fieldset>
+        </article>
+        <hr>
+    <% }); %>
+</section>
+
+<%- include('layouts/footer', {dados: {nome: 'Nome Completo', linkedin: '#', github: '#'} }) %>

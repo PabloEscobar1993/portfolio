@@ -1,0 +1,20 @@
+<%- include('layouts/header', {title: 'Meus Projetos'}) %>
+
+<section id="lista-projetos">
+    <h2>Projetos Desenvolvidos</h2>
+
+    <% listaProjetos.forEach(projeto => { %>
+        <article class="projeto-card">
+            <h3><%= projeto.titulo %></h3>
+            <p>**Tecnologias:** <%= projeto.tecnologias %></p>
+            <p><%= projeto.descricao %></p>
+            <a href="<%= projeto.link %>" target="_blank">Ver Projeto</a>
+        </article>
+    <% }); %>
+
+    <% if (listaProjetos.length === 0) { %>
+        <p>Ainda não há projetos para listar.</p>
+    <% } %>
+</section>
+
+<%- include('layouts/footer', {dados: {nome: 'Nome Completo', linkedin: '#', github: '#'} }) %>

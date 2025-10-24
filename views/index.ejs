@@ -1,0 +1,19 @@
+<%- include('layouts/header', {title: 'Página de Apresentação'}) %>
+
+<section id="apresentacao">
+    <img src="/img/foto-perfil.jpg" alt="Foto de Perfil" class="perfil-img">
+    
+    <h1>Olá! Eu sou <%= dados.nome %></h1>
+    <h2><%= dados.cargo %></h2>
+    <p><%= dados.biografia %></p>
+</section>
+
+<section id="habilidades">
+    <h3>Competências Técnicas e Interpessoais</h3>
+    <ul>
+        <li>**Técnicas:** HTML, CSS, JavaScript, Node.js, Express, EJS... (Adicione as suas)</li>
+        <li>**Interpessoais (Soft Skills):** Comunicação, Liderança, Resolução de Problemas... (Adicione as suas)</li>
+    </ul>
+</section>
+
+<%- include('layouts/footer', {dados: dados}) %>
