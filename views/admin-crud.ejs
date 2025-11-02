@@ -1,10 +1,10 @@
-<%- include('layouts/header', {title: 'Admin CRUD'}) %>
+<%- include('layouts/header', {title: 'Admin'}) %>
 
 <section id="admin-crud">
-    <h2>Gerenciamento de Projetos (CRUD)</h2>
+    <h2>Gerenciamento de Projetos</h2>
 
     <fieldset>
-        <legend>Criar Novo Projeto (POST)</legend>
+        <legend>Criar Novo Projeto</legend>
         <form action="/admin/projetos" method="POST">
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" required><br>
@@ -30,11 +30,11 @@
             <h4><%= projeto.titulo %> (ID: <%= projeto.id %>)</h4>
             
             <form action="/admin/projetos/delete/<%= projeto.id %>" method="POST" style="display:inline;">
-                <button type="submit">Excluir (DELETE)</button>
+                <button type="submit">Excluir</button>
             </form>
 
             <fieldset>
-                <legend>Editar Projeto ID: <%= projeto.id %> (PUT)</legend>
+                <legend>Editar Projeto ID: <%= projeto.id %></legend>
                 <form action="/admin/projetos/update/<%= projeto.id %>" method="POST">
                     <label>Título:</label>
                     <input type="text" name="titulo" value="<%= projeto.titulo %>" required><br>
@@ -42,7 +42,7 @@
                     <label>Tecnologias:</label>
                     <input type="text" name="tecnologias" value="<%= projeto.tecnologias %>"><br>
                     
-                    <button type="submit">Atualizar (PUT)</button>
+                    <button type="submit">Atualizar</button>
                 </form>
             </fieldset>
         </article>
@@ -50,4 +50,4 @@
     <% }); %>
 </section>
 
-<%- include('layouts/footer', {dados: {nome: 'Nome Completo', linkedin: '#', github: '#'} }) %>
+<%- include('layouts/footer', {dados: {nome: 'Pablo Rafael', linkedin: '#', github: '#'} }) %>

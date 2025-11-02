@@ -6,7 +6,7 @@
     <% listaProjetos.forEach(projeto => { %>
         <article class="projeto-card">
             <h3><%= projeto.titulo %></h3>
-            <p>**Tecnologias:** <%= projeto.tecnologias %></p>
+            <p>Tecnologias: <%= projeto.tecnologias %></p>
             <p><%= projeto.descricao %></p>
             <a href="<%= projeto.link %>" target="_blank">Ver Projeto</a>
         </article>
@@ -17,4 +17,4 @@
     <% } %>
 </section>
 
-<%- include('layouts/footer', {dados: {nome: 'Nome Completo', linkedin: '#', github: '#'} }) %>
+<%- include('layouts/footer', {dados: {nome: 'Pablo Rafael', linkedin: '#', github: '#'} }) %>
